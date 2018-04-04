@@ -7,15 +7,37 @@ var noiseScale = 0.005;
 
 var strokeLength = 35;
 
-var imgNames = ["Revanth.jpg", "starryNight.jpg"] //, "LowPolyTexture2.jpg", "LowPolyTexture3.jpg"]; // Add your image's name here.
+var imgNames = ["Revanth.jpg"] //, "LowPolyTexture2.jpg", "LowPolyTexture3.jpg"]; // Add your image's name here.
 
 var imgs = [];
 
+var button;
+
 var imgIndex = -1;
+
+var rows = 30;
+var cols = 50;
+var ts = 20;
 
 var frame;
 
+var prevX;
+var prevY;
+
 var check = false;
+
+var letter;
+
+var iconNames = ["assets/envelope.svg", "assets/file-alt.svg","assets/github.svg","assets/linkedin.svg","assets/twitter-square.svg"]
+var icons = [];
+
+var button1;
+var button2;
+var button3;
+var button4;
+var button5;
+
+var matrix = [];
 
 function preload() {
 
@@ -28,156 +50,119 @@ function preload() {
 
   }
   
+  for (let i = 0; i < iconNames.length; i++) {
+    let newIcon = loadImage(iconNames[i]);
+
+    icons.push(newIcon);
+
+  }
+  
+  
+  
   FontLato = loadFont('assets/Font/Lato-Regular.ttf');
   FontAm = loadFont('assets/Font/Amethyst.ttf');
   FontRC = loadFont('assets/Font/R&C-Demo.otf');
   FontHoney = loadFont('assets/Font/Honeymoon.ttf');
+  FontScript = loadFont('assets/Font/Impregnable.ttf');
   
-
+  //result = loadStrings('assets/test.txt');
+  
 }
 
 function setup(){
-  createCanvas(windowWidth, windowHeight*5);
+  createCanvas(windowWidth, windowHeight*7);
+
+		prevX = 0;
+		prevY = 0;
   
+		  
+  button1 = createInput('click me');
+  button1.position(width/2-(250), 550);
+  button1.size(50, 55);
+  button1.attribute('type', 'image');
+  button1.attribute('src', 'assets/envelope.svg');
+  button1.attribute('color', '#1ebbd7')
+  //button1.style(type="image" src="assets/envelope.svg");
   
-  changeImage();
+  button2 = createInput('click me');
+  button2.position(width/2-(250)+100, 550);
+  button2.size(50, 55);
+  button2.attribute('type', 'image');
+  button2.attribute('src', 'assets/file-alt.svg');
+  button2.attribute('color', '#1ebbd7')
+  
+  button3 = createInput('click me');
+  button3.position(width/2-(250)+200, 550);
+  button3.size(50, 55);
+  button3.attribute('type', 'image');
+  button3.attribute('src', 'assets/github.svg');
+  button3.attribute('color', '#1ebbd7')
+  
+  button4 = createInput('click me');
+  button4.position(width/2-(250)+300, 550);
+  button4.size(50, 55);
+  button4.attribute('type', 'image');
+  button4.attribute('src', 'assets/linkedin.svg');
+  button4.attribute('color', '#1ebbd7')
+  
+  button5 = createInput('click me');
+  button5.position(width/2-(250)+400, 550);
+  button5.size(50, 55);
+  button5.attribute('type', 'image');
+  button5.attribute('src', 'assets/twitter-square.svg');
+  button5.attribute('color', '#1ebbd7')
+
+		for(let i=0; i<rows; i++){
+			let col = [];
+			for(let j=0; j<cols; j++){
+					col.push(0);
+			}
+			matrix.push(col);
+		}
+		
 
 }
 
 function draw(){
-	
-
-	
-		/*
-		background(82,0,22);
-		*/
-		noStroke();
-  textSize(100);
-  fill(226, 150, 170);
-  textFont(FontAm);
-		text('Revanth', 0, 150);
-		text('  Korrapolu', 0, 300);
 		
-		fill(190, 95, 120);
-		textSize(50);
+		background(0);
+		textFont(FontLato);
+		textSize(ts);
+		for(let i=0; i<rows; i++){
+			for(let j=0; j<cols; j++){
+					if((i > 7 && i < 21 && j > 6 && j < 15) || (i > 8 && i < 20 && j > 40 && j < 46))
+						fill(0);
+						else
+							//fill(190, 95, 120);
+							fill("#189ad3");
+					text('x', (width/rows)*i+10, (windowHeight/cols)*j);
+			}
+		}
+
+
+		noStroke();
+		fill("#1ebbd7");
+
+		textSize(70);
 		textFont(FontHoney);
-		text('Always Building', 25, 450);
+		rectMode(CORNERS)
+		text('Revanth Korrapolu', width/2-(8*70/2), 150);
+		rectMode(CORNERS);
+		
+		
+		fill("#71c7ec");
 		
 		textFont(FontLato);
 		text("Projects", 0, 750)
 		
-		if (frame > drawLength*3) {
-				changeImage()
-				
-    return;
+		/*
+  for (let i = 0; i < iconNames.length; i++) {
+  			//tint(226, 150, 170);
+  			tint("#1ebbd7");
+					image(icons[i], width/2-(250)+100*i, 550, 50, 55);
   }
-  let img = imgs[imgIndex];
-  img.loadPixels();
-  
-  translate(width/2-img.width/2+100, height/2-img.height/2+150);
-  
-  let count = map(frame, 0, drawLength, 2, 80);
-  
-  count *= 2;
-  
-  for (let i = 0; i < count; i++) {
-    // Pick a random point on the image.
-    let x = int(random(img.width))
-    let y = int(random(img.height))
-				
-				let index = (y*img.width+x)*4;
-
-    let r = img.pixels[index];
-
-    let g = img.pixels[index+1];
-
-    let b = img.pixels[index+2];
-
-    let a = img.pixels[index+3];
-
-    
-
-    stroke(r, g, b, a);
-
-    let sw = map(frame/3, 0, drawLength, 25, 0);
-
-    strokeWeight(sw);
-
-    push();
-
-    translate(x, y)
-    
-    ////////////////////////////////////////////////////////////////////////////
-			if(check){
-				fill(r, g, b, a);
-    ellipse(0, 0, 0, 0);
-
-    pop();
-			}
-    ///////////////////////////////////////////////////////////////////////////////
-
-			if(!check){
-    let n = noise(x*noiseScale, y*noiseScale);
-
-    rotate(radians(map(n, 0, 1, -180, 180)));
-				
-    let lengthVariation = random(0.75, 1.25);
-
-				fill(r, g, b, a);
-
-    line(0, 0, strokeLength*lengthVariation-frame/25, 0);
-    //ellipse(0, 0, 0, 0);
-
-    stroke(min(r*3, 225), min(g*3, 225), min(b*3, 225), random(100));
-    
-
-    strokeWeight(sw*0.8);
-    
-
-    line(0, -sw*0.15, strokeLength*lengthVariation, -sw*0.15);
-    
-
-    pop();
-			}
-  }
-
-  frame++;
-
+*/
+		
+		
 
 }
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  
-}
-
-
-function changeImage() {
-
-		if(check)
-			check = false;
-		else 
-			check = true;
-
-  background(82,0,22);
-  
-  frame = 0;
-
-  noiseSeed(int(random(1000)));
-
-  imgIndex++;
-
-  if (imgIndex >= imgNames.length) {
-
-    imgIndex = 0;
-
-  }
-
-
-}
-/*
-function mousePressed() {
-
-  changeImage();
-
-}*/

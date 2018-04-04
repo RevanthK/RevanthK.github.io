@@ -1,0 +1,71 @@
+Dear Lisa,
+
+I’ve loved you for a while now. Much longer than you may know. You became my best friend because of your passion for learning, personality, and . 
+
+But I fell in love because of your flaws.  
+
+I love the way your face blazes red when your flustered. I love how your forehead scrunches up when you laugh. I love how you demand respect for yourself, even if others view it as stubbornness. And brown hair and freckles look hella cute too. 
+
+I crave your happiness. 
+
+I have always been a dreamer. I can’t tell you how many time I imagined traveling the world with you. But then I snap back to reality and realize how distant that dream is. The past few weeks I have lost track and reality, and occasionally lost track of you. I’m glad you pull me back and keep me grounded in the present. 
+
+I want to make you happy not just in the future. And I want to do it starting now. 
+
+I hope you can forgive me for not asking you sooner. As you know, I’m am far from perfect. Please stay patient with me while I learn to love you the way you deserve. I know not jewish, I don’t have a job or many of the other you would like. But I promise to give you my best.
+
+I guess I’m looking for one more L in my life ironically. Even though we pretty much have been dating for months now, I guess I finally grew the balls the to ask you out (literally they were SOOOO swollen). Long overdue LMAO. Please come find my in the hallway because I’m probably stressing about how many typos you found in this letter.
+
+Love,
+
+Rev
+
+
+		
+		/*
+		noStroke();
+  textSize(100);
+  fill(226, 150, 170);
+ 	textFont(FontScript);
+		text("Dear Lisa,", 35, 100)
+		
+		textSize(70);
+		text("I’ve liked you for a while now. Much longer than you may know. Last ", 35, 250)
+		text("year, you inevitebly became my best friend because of your passion ", 35, 350)
+	 text("for learning, personality, and your propensity to find indian males.", 35, 450)
+	 
+	 text("But I fell in love because of your flaws.", 35, 650)
+	 
+	 text("I love how your forehead scrunches up when you laugh. I love the ", 35, 850)
+	 text("way your face blazes red when your flustered. I love how you demand ", 35, 950)
+	 text("respect for yourself, even if others view it as stubbornness. Your ", 35, 1050)
+	 text("brown hair and freckles are a bonus. ", 35, 1150)
+	 
+	 text("Your smile always makes me happy ", 35, 1350)
+	
+	 
+	 text("I have always been a dreamer. I can’t tell you how many time I", 35, 1550)
+	 text("imagined traveling the world with you in the future. But then I snap ", 35, 1650)
+	 text("back to reality and realize how distant that dream is. The past few ", 35, 1750)
+	 text("weeks I have lost track of reality, and occasionally lost track of the ", 35, 1850)
+	 text("real you. I’m glad you pull me back and keep me grounded in the ", 35, 1950)
+	 text("present. ", 35, 2050)
+	 
+	 
+	 text("I hope you can forgive me for not asking you sooner. As you know,", 35, 1550)
+	 text("I’m am far from perfect. Please stay patient with me while I learn", 35, 1650)
+	 text("to appreciate you the way you deserve. I know not jewish, I don’t have", 35, 1750)
+	 text("a job or many of the other things you would like. But I promise to give", 35, 1850)
+	 text("you my best.", 35, 1950)
+	  
+	 
+	 text("I guess I’m looking for one more L in my life (ironically). Even though ", 35, 2150)
+	 text("we pretty much have been dating for months now, I guess I finally", 35, 2250)
+	 text("grew the balls the to ask you out (literally they were SOOOO swollen).", 35, 2350)
+	 text("Long overdue LMAO. Please come find my in the hallway because", 35, 2450)
+	 text("I’m probably stressing about how many typos you found in this letter.", 35, 2550)
+	 
+	 text("Hoping to be your king,", 35, 2750)
+	 
+	 text("Rev", 35, 2950)
+	 */
