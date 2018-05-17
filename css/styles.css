@@ -85,22 +85,22 @@ a:hover {
 	border-bottom: 2px solid #E43956;
 }
 
-.moon .project-title:hover {
+.disrupt .project-title:hover {
 	color: #615cfa;
 	border-bottom: 2px solid #615cfa;
 }
 
-.slash .project-title:hover {
+.alexa .project-title:hover {
 	color: #FF8159;
 	border-bottom: 2px solid #FF8159;
 }
 
-.wade .project-title:hover {
+.twitter .project-title:hover {
 	color: #50ffbb;
 	border-bottom: 2px solid #50ffbb;
 }
 
-.wing .project-title:hover {
+.knight .project-title:hover {
 	color: #d62f2f;
 	border-bottom: 2px solid #d62f2f;
 }
