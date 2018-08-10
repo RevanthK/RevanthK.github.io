@@ -33,6 +33,11 @@ a:hover {
 	font-size: 100px;
 }
 
+#inner {
+  display: table;
+  margin: 0 auto;
+}
+
 /* About */
 #about {
 	opacity: 0;
