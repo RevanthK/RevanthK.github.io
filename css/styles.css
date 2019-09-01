@@ -65,6 +65,33 @@ a:hover {
 	transition: color .5s ease;
 }
 
+/* Experience */
+#experience {
+	opacity: 0;
+}
+
+#experience .container p {
+	font-family: "Hans Kendrick", sans-serif;
+	font-size: 40px;
+	transition: color .5s ease;
+}
+
+#experience .container:hover p {
+	color: #777777;
+}
+
+#experience .container:hover span.keyword {
+	color: #F2F2F2;
+}
+
+#experience .container p:first-of-type {
+	margin-bottom: 40px;
+}
+
+.keyword {
+	transition: color .5s ease;
+}
+
 /* Projects */
 #projects {
 	opacity: 0;
@@ -168,7 +195,7 @@ a:hover {
 		font-size: 45px;
 	}
 
-	#about .container p, #projects .project p, #social .container p {
+	#about .container p, #experience .container p, #projects .project p, #social .container p {
 		font-size: 35px;
 	}
 }
@@ -182,7 +209,7 @@ a:hover {
 		font-size: 30px;
 	}
 
-	#about .container p, #projects .project p, #social .container p {
+	#about .container p, #experience .container p, #projects .project p, #social .container p {
 		font-size: 30px;
 	}
 }
