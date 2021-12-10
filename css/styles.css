@@ -19,7 +19,7 @@ a:hover {
 }
 
 .container {
-	max-width: 700px;
+	max-width: 1500px;
 }
 
 .subhead {
@@ -117,12 +117,12 @@ a:hover {
 	border-bottom: 2px solid #E43956;
 }
 
-.disrupt .project-title:hover {
+.shor .project-title:hover {
 	color: #615cfa;
 	border-bottom: 2px solid #615cfa;
 }
 
-.alexa .project-title:hover {
+.PEV .project-title:hover {
 	color: #FF8159;
 	border-bottom: 2px solid #FF8159;
 }
@@ -140,6 +140,7 @@ a:hover {
 /* Social */
 #social {
 	opacity: 0;
+	min-height: fit-content;
 }
 
 #social .container p {
@@ -197,6 +198,7 @@ a:hover {
 
 	#about .container p, #experience .container p, #projects .project p, #social .container p {
 		font-size: 35px;
+		width: 500px;
 	}
 }
 
