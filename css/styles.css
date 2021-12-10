@@ -141,6 +141,7 @@ a:hover {
 #social {
 	opacity: 0;
 	min-height: fit-content;
+	margin-bottom: 140px;
 }
 
 #social .container p {
