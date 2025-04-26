@@ -13,9 +13,9 @@ npm install
 
 ### Available Scripts
 
-* \`npm run build\` - Build and minify the CSS using Tailwind
-* \`npm run dev\` - Watch for CSS changes and rebuild automatically
-* \`npm run start\` - Start a local development server on port 8000
+* `npm run build` - Build and minify the CSS using Tailwind
+* `npm run dev` - Watch for CSS changes and rebuild automatically
+* `npm run start` - Start a local development server on port 8000
 
 ### Dependencies
 * TailwindCSS
