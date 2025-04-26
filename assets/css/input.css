@@ -1,0 +1,553 @@
+@import "tailwindcss";
+
+@layer home, wave-emoji, splitflap, normalize, base, demo;
+
+@layer home {
+  .button-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-family: sans-serif;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    border-radius: 9999px; /* pill shape */
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.3s ease;
+    background: #111;
+    color: white;
+    border: none;
+  }
+
+  .btn:hover {
+    background: #000;
+  }
+
+  .monogram {
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+  }
+
+  .container:hover p {
+    color: #9ca3af;
+    transition: color 0.3s ease;
+  }
+  .container:hover .keyword {
+    color: white;
+  }
+
+}
+
+/* wave emoji */
+@layer wave-emoji {
+  @keyframes wave {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-15deg); }
+    100% { transform: rotate(0deg); }
+  }
+  .wave-emoji {
+    display: inline-block;
+    animation: wave 2s infinite;
+    transform-origin: 70% 70%;
+  }
+}
+
+/* splitflap */
+@layer splitflap {
+  @keyframes flip {
+    from {
+      transform: rotateX(-0deg);
+    }
+    to {
+      transform: rotateX(-90deg);
+    }
+  }
+
+  @keyframes bflip {
+    from {
+      transform: rotateX(90deg);
+    }
+    to {
+      transform: rotateX(0deg);
+    }
+  }
+
+  /* splitflap specific styles */
+  .split-flap-wrapper * {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .split-flap-wrapper {
+    width: 1700px;
+    height: 300px;
+    transform: scale(0.45);
+    transform-origin: center;
+    border: 1px solid black;
+    padding: 10px;
+    background: radial-gradient(#404040, black);
+    box-shadow: inset 2px 2px 15px #444444;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    border-radius: 5px;
+    flex-shrink: 0;
+    border: 2px solid orange;
+    overflow: hidden;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%) scale(0.45);
+  }
+
+  .flap {
+    width: 200px;
+    height: 100%;
+    border: 2px solid black;
+    margin: 5px;
+    font-size: 170px;
+    flex-direction: column;
+    display: flex;
+    background-color: black;
+    perspective: 700px;
+    overflow: hidden;
+    border-radius: 4px;
+  
+    box-shadow: inset 2px 2px #111111;
+    padding: 10px;
+  }
+  .top {
+    border-bottom: 1px solid #222222;
+    box-shadow: inset 0px -1px white;
+  }
+  .top,
+  .bottom {
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+  }
+
+  .top-flap-visible,
+  .top-flap-queued, .top-static-flap {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    z-index: 2;
+      border-radius: 15px;
+    border-top: 1px solid #333333;
+    background-color: rgb(10,10,10);
+  }
+  .top-flap-queued {
+    z-index: 1;
+  }
+
+  .bottom-flap-visible,
+  .bottom-flap-queued, .bottom-static-flap {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 15px;
+    border-bottom: 1px solid  #333333;
+  /*   background-color: rgb(15,15,15); */
+    background: radial-gradient(#404040, black);
+  }
+
+  .top span {
+    display: block;
+    margin-top: -5%;
+  }
+  .bottom span {
+    display: block;
+    margin-top: -75%;
+  }
+
+  .bottom-flap-queued {
+    z-index: 2;
+    transform: rotateX(90deg);
+    overflow: hidden;
+  }
+
+  .top-flap-animation {
+    animation: flip 0.05s ease-in;
+    transform-origin: bottom;
+  }
+
+  .bottom-flap-animation {
+    animation: bflip 0.05s ease-in;
+    transform-origin: top;
+    animation-delay: 0.05s;
+  }
+
+
+  /* Outer Wrapper */
+  .body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px dashed brown;
+  }
+
+
+  label {
+    border-left: 2px solid grey;
+    padding-left: 10px;
+
+  }
+  .static {
+    font-size: 14px;
+  }
+  .top-static {
+    height: 100%;
+      box-shadow: none;
+
+  }
+  .top-static-flap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    height: 100%;
+    bottom: 0px;
+    left: 0px;
+    background: radial-gradient(#202020, black);
+    border-bottom: 1px solid grey;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    fill: none;
+  }
+}
+
+/* carousel */
+
+@import url('https://unpkg.com/normalize.css') layer(normalize);
+
+@layer demo {
+  body {
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    padding-block: 2rem;
+  }
+
+  h1,
+  p {
+    margin: 0;
+  }
+
+  h1.fluid {
+    --font-size-min: 22;
+    --font-level: 4.25;
+  }
+
+  h3 {
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  body > p {
+    width: 74ch;
+    max-width: calc(100% - 4rem);
+    text-wrap: balance;
+    font-family: monospace;
+    margin-bottom: 4rem;
+    line-height: 1.5;
+    opacity: 0.8;
+    font-weight: 400;
+
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+  }
+
+  li :is(svg, h3) {
+    opacity: 0.6;
+    transition: opacity calc(var(--speed) * 1.2) var(--easing);
+  }
+
+  li :is(a, p) {
+    opacity: 0;
+    transition: opacity calc(var(--speed) * 1.2) var(--easing);
+    width: fit-content;
+  }
+
+  li img {
+    filter: grayscale(1) brightness(1.5);
+    scale: 1.1;
+    transition-property: filter, scale;
+    transition-duration: calc(var(--speed) * 1.2);
+    transition-timing-function: var(--easing);
+  }
+
+  [data-active='true'] :is(a, p, h3, svg) {
+    opacity: var(--opacity, 1);
+  }
+  [data-active='true'] :is(a, p) {
+    transition-delay: calc(var(--speed) * 0.25);
+  }
+
+  [data-active='true'] img {
+    filter: grayscale(0) brightness(1);
+    scale: 1;
+    transition-delay: calc(var(--speed) * 0.25);
+  }
+
+  article {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-family: monospace;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-inline: calc(var(--base) * 0.5 - 9px);
+    padding-bottom: 1rem;
+    overflow: hidden;
+
+    h3 {
+      position: absolute;
+      top: 1rem;
+      left: calc(var(--base) * 0.5);
+      transform-origin: 0 50%;
+      rotate: 90deg;
+      font-size: 1rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      font-family: monospace;
+      color: white;
+    }
+
+    p {
+      font-size: 13px;
+      text-wrap: balance;
+      line-height: 1.25;
+      --opacity: 0.8;
+      color: white;
+    }
+
+    p a {
+      position: relative;
+      bottom: auto;
+      height: auto;
+      line-height: inherit;
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    a {
+      position: absolute;
+      bottom: 1rem;
+      height: 18px;
+      line-height: 1;
+      color: inherit;
+      
+
+      &:is(:focus-visible, :hover) {
+        outline: none;
+        span {
+          text-decoration: underline;
+          text-underline-offset: 4px;
+        }
+      }
+
+      span {
+        display: inline-block;
+        line-height: 18px;
+        translate: calc(var(--base) * 0.5);
+        font-weight: 500;
+      }
+    }
+
+    img {
+      position: absolute;
+      pointer-events: none;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      mask: radial-gradient(100% 100% at 100% 0, #fff, #0000);
+    }
+    video {
+      position: absolute;
+      pointer-events: none;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      mask: radial-gradient(100% 100% at 100% 0, #fff, #0000);
+    }
+  }
+  /* gotta use some Math on the container really */
+  /* width is "ideal" 7 * 80px + 6 * gap + say 300px or whatever the ideal width is */
+  :root {
+    --gap: 8px;
+    --base: clamp(2rem, 8cqi, 80px);
+    --easing: linear(
+      0 0%,
+      0.1538 4.09%,
+      0.2926 8.29%,
+      0.4173 12.63%,
+      0.5282 17.12%,
+      0.6255 21.77%,
+      0.7099 26.61%,
+      0.782 31.67%,
+      0.8425 37%,
+      0.8887 42.23%,
+      0.9257 47.79%,
+      0.9543 53.78%,
+      0.9752 60.32%,
+      0.9883 67.11%,
+      0.9961 75%,
+      1 100%
+    );
+    --speed: 0.6s;
+  }
+  ul {
+    display: grid;
+    container-type: inline-size;
+    grid-template-columns: 10fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: var(--gap);
+    list-style-type: none;
+    justify-content: center;
+    padding: 0;
+    height: clamp(300px, 40dvh, 474px);
+    margin: 0;
+    width: calc(
+      ((var(--items) - 1) * var(--base)) + ((var(--items) - 1) * var(--gap)) +
+        var(--ideal)
+    );
+    width: 820px;
+    max-width: calc(100% - 4rem);
+    transition: grid-template-columns var(--speed) var(--easing);
+  }
+
+  li {
+    /* outline: 4px dashed canvasText; */
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    min-width: var(--base);
+    border-radius: 8px;
+    border: 1px solid color-mix(in hsl, canvas, canvasText 50%);
+  }
+}
+
+@layer base {
+  :root {
+    --font-size-min: 16;
+    --font-size-max: 20;
+    --font-ratio-min: 1.2;
+    --font-ratio-max: 1.33;
+    --font-width-min: 375;
+    --font-width-max: 1500;
+  }
+
+
+  :where(.fluid) {
+    --fluid-min: calc(
+      var(--font-size-min) * pow(var(--font-ratio-min), var(--font-level, 0))
+    );
+    --fluid-max: calc(
+      var(--font-size-max) * pow(var(--font-ratio-max), var(--font-level, 0))
+    );
+    --fluid-preferred: calc(
+      (var(--fluid-max) - var(--fluid-min)) /
+        (var(--font-width-max) - var(--font-width-min))
+    );
+    --fluid-type: clamp(
+      (var(--fluid-min) / 16) * 1rem,
+      ((var(--fluid-min) / 16) * 1rem) -
+        (((var(--fluid-preferred) * var(--font-width-min)) / 16) * 1rem) +
+        (var(--fluid-preferred) * var(--variable-unit, 100vi)),
+      (var(--fluid-max) / 16) * 1rem
+    );
+    font-size: var(--fluid-type);
+  }
+
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: 'SF Pro Text', 'SF Pro Icons', 'AOS Icons', 'Helvetica Neue',
+      Helvetica, Arial, sans-serif, system-ui;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  body::before {
+    --size: 45px;
+    --line: color-mix(in hsl, canvasText, transparent 70%);
+    content: '';
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background: linear-gradient(
+          90deg,
+          var(--line) 1px,
+          transparent 1px var(--size)
+        )
+        50% 50% / var(--size) var(--size),
+      linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+        var(--size) var(--size);
+    mask: linear-gradient(-20deg, transparent 50%, white);
+    top: 0;
+    transform-style: flat;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  :where(.x-link):is(:hover, :focus-visible) {
+    opacity: 1;
+  }
+
+  /* Utilities */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
